@@ -1,37 +1,35 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+import { Stack } from "expo-router";
+import { GluestackUIProvider, Text, Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Tooltip, ButtonText, Button, TooltipContent, TooltipText } from "@gluestack-ui/themed"
+import { config } from "@gluestack-ui/config" 
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+      <GluestackUIProvider config={config}>
+      <Box width="100%" justifyContent="center" alignItems="center">
+        <Text>Open up App.js to start working on your app!</Text>
+      </Box>
+
+      <Tooltip
+          placement="top" 
+          trigger={(triggerProps) => {
+            return (
+              <Button h='$24' {...triggerProps}>
+                <ButtonText>Hover on me!</ButtonText>
+              </Button>
+            );
+          }}
+        >
+          <TooltipContent>
+           <TooltipText>Tooltip</TooltipText>
+          </TooltipContent>
+        </Tooltip>
+      
+      <Slider>
+        <SliderTrack>
+          <SliderFilledTrack />
+        </SliderTrack>
+        <SliderThumb />
+    </Slider>
+    </GluestackUIProvider>
   );
 }
