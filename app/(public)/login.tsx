@@ -1,20 +1,27 @@
 import { Link, useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { TouchableOpacity, View, StyleSheet, TextInput, Button, Pressable, Text, Alert } from 'react-native';
-import { login } from '../../api/login';
+import {
+  Button,
+  ButtonText
+} from "@gluestack-ui/themed"
+import { TouchableOpacity, View, StyleSheet, TextInput, Pressable, Text, Alert } from 'react-native';
+import { useAuth } from "../../hooks/useAuth";
 
 const Login = () => {
   const [username, setUserame] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const { signIn, loading } = useAuth();
   const router = useRouter();
+
   const handleLogin = async () => {
     try {
-      const token = await login(username, password);      
+      const token = await signIn(username, password);      
       router.replace('/home');
     } catch (error) {
       Alert.alert('Error', 'Email o contraseña incorrectos');
     }
   };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
@@ -33,7 +40,10 @@ const Login = () => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+      <Button size="sm">
+        <ButtonText>Submit</ButtonText>
+      </Button>
+      <TouchableOpacity style={styles.button} onPress={handleLogin} disabled={loading}>
         <Text style={styles.buttonText}>Iniciar sesión</Text>
       </TouchableOpacity>
       <Link href="/reset" asChild>

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { httpClient } from './http';
 import * as SecureStore from 'expo-secure-store';
 

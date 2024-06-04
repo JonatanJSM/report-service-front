@@ -2,22 +2,13 @@ import { Slot, Stack, useRouter, useSegments } from "expo-router";
 import { GluestackUIProvider } from "@gluestack-ui/themed"
 import { config } from "@gluestack-ui/config" 
 import { useEffect, useState } from "react";
-import { getToken } from "../api/login";
+import { useAuth } from "../hooks/useAuth";
 
 const InitialRoute = () => {
-  const [isSignedIn, setIsSignedIn] = useState<boolean | null>(null);
+  const { isSignedIn } = useAuth();
   const segments = useSegments();
   const router = useRouter();
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      const token = await getToken();  
-      setIsSignedIn(!!token);
-    };
-
-    checkAuth();
-  }, []);
-
+  
   useEffect(() => {
     if (isSignedIn === null){return;}
 
