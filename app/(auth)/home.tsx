@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
-import { removeToken } from '../api';
-
+import { removeToken } from '../../api/login';
+import { Card } from '@/components/card';
 const Home = () => {
   const router = useRouter();
 
@@ -14,6 +14,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Text>Bienvenido!</Text>
+      <Card />
       <Button title="Cerrar sesión" onPress={handleLogout} />
       <Button title="Ir a otra pantalla" onPress={() => router.push('/other')} />
     </View>
