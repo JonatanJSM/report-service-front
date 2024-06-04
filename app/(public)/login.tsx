@@ -1,7 +1,7 @@
 import { Link, useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { TouchableOpacity, View, StyleSheet, TextInput, Button, Pressable, Text, Alert } from 'react-native';
-import { login } from '../api';
+import { login } from '../../api/login';
 
 const Login = () => {
   const [username, setUserame] = useState<string>('');

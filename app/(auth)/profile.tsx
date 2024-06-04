@@ -7,7 +7,6 @@ const Profile = () => {
 
   const onSaveUser = async () => {
     try {
-      // This is not working!
       const result = "hola"
       console.log('🚀 ~ file: profile.tsx:16 ~ onSaveUser ~ result:', result);
     } catch (e) {
