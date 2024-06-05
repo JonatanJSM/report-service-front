@@ -1,7 +1,8 @@
 import { Slot, Stack, useRouter, useSegments } from "expo-router";
-import { GluestackUIProvider } from "@gluestack-ui/themed"
-import { config } from "@gluestack-ui/config" 
-import { useEffect, useState } from "react";
+import { GluestackUIProvider } from "@gluestack-ui/themed";
+import { config } from "@gluestack-ui/config";
+import { NavigationContainer } from '@react-navigation/native';
+import { useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
 
 const InitialRoute = () => {
@@ -13,11 +14,15 @@ const InitialRoute = () => {
     if (isSignedIn === null){return;}
 
     const inAuthGroup = segments[0] === '(auth)';
-    if (isSignedIn && !inAuthGroup) {
+    const inBachesGroup = segments[0] === '(baches)';
+    if (!isSignedIn && !inAuthGroup) {
       router.replace('/home');
     } else if (!isSignedIn && !inAuthGroup) {
       router.replace('/login');
+    } else if (isSignedIn && !inBachesGroup) {
+      return;
     }
+    
   }, [isSignedIn, segments]);
 
   return <Slot />;

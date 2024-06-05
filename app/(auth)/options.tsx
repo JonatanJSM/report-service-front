@@ -1,6 +1,7 @@
-import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-const Profile = () => {
+const Options = () => {
+
   const onSaveUser = async () => {
     try {
       const result = "hola"
@@ -13,12 +14,9 @@ const Profile = () => {
   return (
     <View style={styles.container}>
       <Text style={{ textAlign: 'center' }}>
-        Aqui verá las opciones para su cuenta, cerrar sesión, cambiar contraseña, datos, etc
+        Aquí va a poder crear sus reportes de baches o si tiene vulcanizadora registrarla
+        ver cómo está en uber
       </Text>
-
-      <TextInput placeholder="First Name" value={"hehe"}  style={styles.inputField} />
-      <TextInput placeholder="Last Name" value={"hehe"}  style={styles.inputField} />
-      <Button onPress={onSaveUser} title="Update account" color={'#6c47ff'}></Button>
     </View>
   );
 };
@@ -40,4 +38,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Profile;
+export default Options;
