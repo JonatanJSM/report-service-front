@@ -1,5 +1,4 @@
 import { Button, TextInput, View, StyleSheet } from 'react-native';
-import { useState } from 'react';
 import { Stack } from 'expo-router';
 
 const Register = () => {
@@ -7,13 +6,9 @@ const Register = () => {
   return (
     <View style={styles.container}>
       <Stack.Screen/>
-
-          <TextInput autoCapitalize="none" placeholder="simon@galaxies.dev"  style={styles.inputField} />
-          <TextInput placeholder="password" secureTextEntry style={styles.inputField} />
-
-          <Button  title="Sign up" color={'#6c47ff'}></Button>
-
-
+        <TextInput autoCapitalize="none" placeholder="simon@galaxies.dev"  style={styles.inputField} />
+        <TextInput placeholder="password" secureTextEntry style={styles.inputField} />
+        <Button  title="Sign up" color={'#6c47ff'}></Button>
     </View>
   );
 };
