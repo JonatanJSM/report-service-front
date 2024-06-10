@@ -1,12 +1,9 @@
+// app/_layout.js
 import React from 'react';
+import { Tabs } from 'expo-router/tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import  Profile  from './profile';
-import Home from './home';
-import Activity from './activity';
-import Options from './options';
-
+ // Asegúrate de que la ruta sea correcta
 export const LogoutButton = () => {
   return (
     <Pressable style={{ marginRight: 10 }}>
@@ -14,42 +11,35 @@ export const LogoutButton = () => {
     </Pressable>
   );
 };
-
-const Tab = createBottomTabNavigator();
-
-const TabsPage = () => {
+export default function Layout() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen
+    <Tabs>
+      <Tabs.Screen
         name="home"
-        component={Home}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => <Ionicons name="home" size={size} color={color} />,
           tabBarLabel: 'Home',
         }}
       />
-      <Tab.Screen
+      <Tabs.Screen
         name="options"
-        component={Options}
         options={{
           headerTitle: 'Options',
           tabBarIcon: ({ color, size }) => <Ionicons name="menu" size={size} color={color} />,
           tabBarLabel: 'Options',
         }}
       />
-      <Tab.Screen
+      <Tabs.Screen
         name="activity"
-        component={Activity}
         options={{
           headerTitle: 'Activity',
           tabBarIcon: ({ color, size }) => <Ionicons name="bookmark" size={size} color={color} />,
           tabBarLabel: 'Activity',
         }}
       />
-      <Tab.Screen
+      <Tabs.Screen
         name="profile"
-        component={Profile}
         options={{
           headerTitle: 'Profile',
           tabBarIcon: ({ color, size }) => <Ionicons name="person" size={size} color={color} />,
@@ -57,8 +47,12 @@ const TabsPage = () => {
           headerRight: () => <LogoutButton />,
         }}
       />
-    </Tab.Navigator>
+      <Tabs.Screen
+        name="report"
+        options={{
+          href: null
+        }}
+      />
+    </Tabs>
   );
-};
-
-export default TabsPage;
+}

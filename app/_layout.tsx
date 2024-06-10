@@ -14,13 +14,10 @@ const InitialRoute = () => {
     if (isSignedIn === null){return;}
 
     const inAuthGroup = segments[0] === '(auth)';
-    const inBachesGroup = segments[0] === '(baches)';
-    if (!isSignedIn && !inAuthGroup) {
+    if (isSignedIn && !inAuthGroup) {
       router.replace('/home');
     } else if (!isSignedIn && !inAuthGroup) {
       router.replace('/login');
-    } else if (isSignedIn && !inBachesGroup) {
-      return;
     }
     
   }, [isSignedIn, segments]);
