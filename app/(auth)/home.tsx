@@ -12,7 +12,7 @@ const Home = () => {
     await removeToken();
     router.replace('/login');
     //router.replace('/baches/report');
-    //router.push('/report');
+    // router.push('/report');
   };
 
   return (
