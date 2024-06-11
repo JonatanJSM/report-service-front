@@ -1,22 +1,14 @@
 import { View, Text, StyleSheet } from 'react-native';
+import { Link } from 'expo-router';
 
 const Options = () => {
-
-  const onSaveUser = async () => {
-    try {
-      const result = "hola"
-      console.log('🚀 ~ file: profile.tsx:16 ~ onSaveUser ~ result:', result);
-    } catch (e) {
-      console.log('🚀 ~ file: profile.tsx:18 ~ onSaveUser ~ e', JSON.stringify(e));
-    }
-  };
-
   return (
     <View style={styles.container}>
       <Text style={{ textAlign: 'center' }}>
         Aquí va a poder crear sus reportes de baches o si tiene vulcanizadora registrarla
         ver cómo está en uber
       </Text>
+      <Link href="/report">Present modal</Link>
     </View>
   );
 };

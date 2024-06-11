@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { useRouter } from 'expo-router';
-const Report = () => {
+const Maps = () => {
 
   const router = useRouter();
 
   const handleBack = () => {
-    router.back();
+    router.back(); // Navegar hacia atrás
   };
 
   const onSaveUser = async () => {
@@ -20,7 +20,7 @@ const Report = () => {
   return (
     <View style={styles.container}>
       <Text style={{ textAlign: 'center' }}>
-        hacer un reporte de bache
+        ver mapaaa
       </Text>
       <Button title="Back" onPress={handleBack} />
     </View>
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Report;
+export default Maps;
