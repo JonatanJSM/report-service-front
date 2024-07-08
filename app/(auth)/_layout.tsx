@@ -1,23 +1,22 @@
-// app/_layout.js
 import React from 'react';
 import { Tabs } from 'expo-router/tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { Pressable } from 'react-native';
- // Asegúrate de que la ruta sea correcta
-export const LogoutButton = () => {
-  return (
-    <Pressable style={{ marginRight: 10 }}>
-      <Ionicons name="log-out-outline" size={24} color="#fff" />
-    </Pressable>
-  );
-};
+import { LogoutButton } from '@/components/logoutButton';
+
 export default function Layout() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+      headerStyle: {
+        backgroundColor: '#6c47ff',
+      },
+      headerTintColor: '#fff',
+    }}
+    >
       <Tabs.Screen
         name="home"
         options={{
-          headerShown: false,
+          headerTitle: 'Home',
           tabBarIcon: ({ color, size }) => <Ionicons name="home" size={size} color={color} />,
           tabBarLabel: 'Home',
         }}
@@ -44,11 +43,18 @@ export default function Layout() {
           headerTitle: 'Profile',
           tabBarIcon: ({ color, size }) => <Ionicons name="person" size={size} color={color} />,
           tabBarLabel: 'Profile',
-          headerRight: () => <LogoutButton />,
+          headerRight: () => <LogoutButton />
         }}
       />
       <Tabs.Screen
         name="report"
+        options={{
+          href: null,
+          tabBarStyle: { display: 'none' }
+        }}
+      />
+      <Tabs.Screen
+        name="maps"
         options={{
           href: null
         }}

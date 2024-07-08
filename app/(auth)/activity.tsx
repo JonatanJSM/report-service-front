@@ -1,16 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 
 const Activity = () => {
-
-  const onSaveUser = async () => {
-    try {
-      const result = "hola"
-      console.log('🚀 ~ file: profile.tsx:16 ~ onSaveUser ~ result:', result);
-    } catch (e) {
-      console.log('🚀 ~ file: profile.tsx:18 ~ onSaveUser ~ e', JSON.stringify(e));
-    }
-  };
-
   return (
     <View style={styles.container}>
       <Text style={{ textAlign: 'center' }}>

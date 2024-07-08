@@ -1,32 +1,14 @@
-import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
-import { removeToken } from '../../api/login';
-import { Link } from 'expo-router';
-import { Card } from '@/components/card';
+import { Box, HStack } from '@gluestack-ui/themed';
+import { View, StyleSheet } from 'react-native';
 
 const Home = () => {
-  const router = useRouter();
-
-  const handleLogout = async () => {
-    await removeToken();
-    router.replace('/login');
-    //router.replace('/baches/report');
-    // router.push('/report');
-  };
-
   return (
     <View style={styles.container}>
-      <Text>Bienvenido!
-        tener la opcion de mapa o de ir a las otras funciones
-      </Text>
-      
-      <Link href="/report">Present modal</Link>
-      {/* <Card /> */}
-      <Button title="Cerrar sesión" onPress={handleLogout} />
-      <Button title="Ir a otra pantalla" onPress={() => router.push('/other')} />
-      <Text>Home Screen</Text>
-      <Link href="/report">Present modal</Link>
+      <HStack space="4xl" reversed={false} >
+          <Box w='$20' h='$20' bg='$blue300' />
+          <Box w='$20' h='$20' bg='$blue400' />
+          <Box w='$20' h='$20' bg='$blue500' />
+      </HStack>
     </View>
   );
 };
@@ -34,7 +16,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
   },
 });

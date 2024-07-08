@@ -1,7 +1,6 @@
-import { Slot, Stack, useRouter, useSegments } from "expo-router";
+import { Slot, useRouter, useSegments } from "expo-router";
 import { GluestackUIProvider } from "@gluestack-ui/themed";
 import { config } from "@gluestack-ui/config";
-import { NavigationContainer } from '@react-navigation/native';
 import { useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
 
